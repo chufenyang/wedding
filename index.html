@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>楊筑棻 & 王雲鋇｜2027.03.06 婚宴</title>
+<meta name="description" content="2027.03.06 星期六 誠品行旅 2F In Between｜婚宴出席調查">
+<meta property="og:title" content="楊筑棻 & 王雲鋇｜2027.03.06 婚宴">
+<meta property="og:description" content="誠意邀請你來參加我們的婚宴，麻煩填一下出席調查 🤍">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f1f1f;
+    --soft:#6b6b6b;
+    --line:#e6e4e0;
+    --bg:#ffffff;
+    --tint:#faf9f7;
+    --accent:#1f1f1f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans TC",system-ui,sans-serif;
+    font-weight:300;color:var(--ink);background:var(--bg);
+    line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 28px}
+
+  /* Hero */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 28px}
+  .eyebrow{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:15px;letter-spacing:.3em;color:var(--soft);text-transform:uppercase}
+  .names{font-family:"Noto Serif TC",serif;font-weight:400;font-size:clamp(30px,8vw,44px);letter-spacing:.18em;margin:28px 0 8px;line-height:1.6}
+  .names .amp{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:300;font-size:.8em;color:var(--soft);letter-spacing:0;margin:2px 0}
+  .rule{width:40px;height:1px;background:var(--ink);margin:36px auto}
+  .date{font-family:"Cormorant Garamond",serif;font-size:28px;letter-spacing:.25em;font-weight:300}
+  .date small{display:block;font-family:"Noto Sans TC",sans-serif;font-size:13px;letter-spacing:.3em;color:var(--soft);margin-top:4px}
+  .scroll{margin-top:64px;font-size:12px;letter-spacing:.3em;color:var(--soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .scroll:hover{color:var(--ink);border-color:var(--ink)}
+
+  section{padding:96px 0;border-top:1px solid var(--line)}
+  h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--soft);text-align:center}
+  h3{font-family:"Noto Serif TC",serif;font-weight:400;font-size:22px;letter-spacing:.2em;text-align:center;margin:10px 0 40px}
+  .lead{text-align:center;font-size:15px;color:#3a3a3a}
+
+  /* Details */
+  .details{display:grid;gap:0;border-top:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .row dt{color:var(--soft);font-size:13px;letter-spacing:.2em;padding-top:2px}
+  .row dd small{display:block;color:var(--soft);font-size:13px}
+  .row a{color:var(--ink);text-underline-offset:4px;text-decoration-color:var(--line)}
+  .row a:hover{text-decoration-color:var(--ink)}
+
+  /* Form */
+  form{margin-top:8px}
+  .field{margin-bottom:34px}
+  .field > label,.field > .label{display:block;font-size:14px;font-weight:400;margin-bottom:12px;letter-spacing:.08em}
+  .req{color:var(--soft);font-size:12px;margin-left:4px}
+  .hint{display:block;font-size:12px;color:var(--soft);margin-top:-8px;margin-bottom:12px}
+  input[type=text],input[type=tel],input[type=email],input[type=number],textarea,select{
+    width:100%;font:inherit;font-size:16px;color:var(--ink);background:transparent;
+    border:none;border-bottom:1px solid #cfcdc8;border-radius:0;padding:8px 2px;outline:none;transition:border-color .2s
+  }
+  textarea{min-height:96px;resize:vertical;border:1px solid #cfcdc8;padding:12px}
+  input:focus,textarea:focus,select:focus{border-color:var(--ink)}
+  select{appearance:none;-webkit-appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='none' stroke='%236b6b6b'/%3E%3C/svg%3E") no-repeat right 4px center}
+  .choices{display:flex;flex-wrap:wrap;gap:10px}
+  .choices label{position:relative;cursor:pointer}
+  .choices input{position:absolute;opacity:0;pointer-events:none}
+  .choices span{
+    display:inline-block;padding:9px 18px;border:1px solid #cfcdc8;font-size:14px;letter-spacing:.06em;transition:all .2s;background:#fff
+  }
+  .choices label:hover span{border-color:var(--ink)}
+  .choices input:checked + span{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .choices input:focus-visible + span{outline:2px solid var(--ink);outline-offset:2px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .grid3 .mini{font-size:12px;color:var(--soft);display:block;margin-bottom:2px;letter-spacing:.1em}
+  .block{display:none}
+  .block.show{display:block;animation:fade .4s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .err{color:#a33;font-size:12px;margin-top:6px;display:none}
+  .field.invalid .err{display:block}
+  .field.invalid input[type=text],.field.invalid input[type=email],.field.invalid input[type=number],.field.invalid select{border-color:#a33}
+
+  button{
+    width:100%;font:inherit;font-size:14px;letter-spacing:.4em;padding:18px;
+    background:var(--ink);color:#fff;border:1px solid var(--ink);cursor:pointer;transition:all .2s;margin-top:8px
+  }
+  button:hover{background:#fff;color:var(--ink)}
+  button:disabled{opacity:.5;cursor:wait}
+  .privacy{font-size:12px;color:var(--soft);text-align:center;margin-top:18px}
+  .fallback{font-size:12px;text-align:center;margin-top:10px}
+  .fallback a{color:var(--soft)}
+
+  .thanks{display:none;text-align:center;padding:40px 0}
+  .thanks.show{display:block;animation:fade .5s ease}
+  .thanks p{font-family:"Noto Serif TC",serif;font-size:20px;letter-spacing:.15em;margin-bottom:12px}
+  .thanks small{color:var(--soft);font-size:14px}
+
+  footer{text-align:center;padding:64px 0 80px;border-top:1px solid var(--line);font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--soft);letter-spacing:.2em}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="eyebrow">We're getting married</p>
+  <h1 class="names">楊筑棻<span class="amp">&amp;</span>王雲鋇</h1>
+  <div class="rule"></div>
+  <p class="date">2027.03.06<small>星期六 · 午宴</small></p>
+  <a class="scroll" href="#rsvp">填寫出席調查 ↓</a>
+</header>
+
+<section id="details">
+  <div class="wrap">
+    <h2>The Day</h2>
+    <h3>婚宴資訊</h3>
+    <dl class="details">
+      <div class="row"><dt>日期</dt><dd>2027 年 3 月 6 日（星期六）</dd></div>
+      <div class="row"><dt>時間</dt><dd>11:30 入場<br>12:00 開席</dd></div>
+      <div class="row"><dt>地點</dt><dd>誠品行旅 2F In Between<small>台北市信義區菸廠路 98 號</small><a href="https://www.google.com/maps/search/?api=1&query=%E8%AA%A0%E5%93%81%E8%A1%8C%E6%97%85" target="_blank" rel="noopener">在 Google 地圖開啟 →</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="wrap">
+    <h2>RSVP</h2>
+    <h3>出席調查</h3>
+    <p class="lead" style="margin-bottom:56px">想邀請你一起來吃頓飯，見證我們的重要日子。<br>麻煩花一分鐘填一下，讓我們好好準備座位和餐點 🤍</p>
+
+    <form id="rsvpForm" novalidate>
+      <div class="field" data-req>
+        <label for="name">你的名字<span class="req">必填</span></label>
+        <input type="text" id="name" name="name" autocomplete="name">
+        <p class="err">請填寫名字</p>
+      </div>
+
+      <div class="field" data-req data-radio="side">
+        <span class="label">你是誰的親友？<span class="req">必填</span></span>
+        <div class="choices">
+          <label><input type="radio" name="side" value="男方親友"><span>男方親友</span></label>
+          <label><input type="radio" name="side" value="男方同事"><span>男方同事</span></label>
+          <label><input type="radio" name="side" value="男方長輩親友"><span>男方長輩親友</span></label>
+          <label><input type="radio" name="side" value="女方親友"><span>女方親友</span></label>
+          <label><input type="radio" name="side" value="女方同事"><span>女方同事</span></label>
+          <label><input type="radio" name="side" value="女方長輩親友"><span>女方長輩親友</span></label>
+        </div>
+        <p class="err">請選一個</p>
+      </div>
+
+      <div class="field" data-req data-radio="attend">
+        <span class="label">3/6 能來嗎？<span class="req">必填</span></span>
+        <div class="choices">
+          <label><input type="radio" name="attend" value="一定到！"><span>一定到！</span></label>
+          <label><input type="radio" name="attend" value="還不確定，晚點再跟你們說"><span>還不確定，晚點再跟你們說</span></label>
+          <label><input type="radio" name="attend" value="很可惜沒辦法去，獻上祝福"><span>很可惜沒辦法去，獻上祝福</span></label>
+        </div>
+        <p class="err">請選一個</p>
+      </div>
+
+      <!-- 出席 / 還不確定 -->
+      <div class="block" id="yesBlock">
+        <div class="field" data-req-yes>
+          <label for="adults">總共幾位大人？（含你自己）<span class="req">必填</span></label>
+          <input type="number" id="adults" name="adults" inputmode="numeric" min="1" max="20" placeholder="例：2">
+          <p class="err">請填寫大人人數</p>
+        </div>
+
+        <div class="field">
+          <label for="kids">有帶小朋友嗎？需要幾張兒童椅？</label>
+          <input type="text" id="kids" name="kids" placeholder="例：2 位小孩，1 張兒童椅">
+        </div>
+
+        <div class="field">
+          <span class="label">飲食禁忌</span>
+          <div class="choices">
+            <label><input type="checkbox" name="diet" value="無"><span>無</span></label>
+            <label><input type="checkbox" name="diet" value="蛋奶素"><span>蛋奶素</span></label>
+            <label><input type="checkbox" name="diet" value="全素"><span>全素</span></label>
+            <label><input type="checkbox" name="diet" value="不吃牛"><span>不吃牛</span></label>
+            <label><input type="checkbox" name="diet" value="其他" id="dietOther"><span>其他</span></label>
+          </div>
+          <input type="text" id="dietOtherText" name="dietOtherText" placeholder="請說明，例如海鮮過敏" style="display:none;margin-top:14px">
+        </div>
+
+        <div class="field">
+          <span class="label">會開車過去嗎？</span>
+          <div class="choices">
+            <label><input type="radio" name="car" value="會，需要停車資訊"><span>會，需要停車資訊</span></label>
+            <label><input type="radio" name="car" value="不會，搭捷運或計程車"><span>不會，搭捷運或計程車</span></label>
+          </div>
+        </div>
+
+        <div class="field" data-req-yes data-email>
+          <label for="email">電子喜帖收件 Email<span class="req">必填</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com">
+          <p class="err">請填寫正確的 Email</p>
+        </div>
+      </div>
+
+      <div class="block" id="commonBlock">
+        <div class="field">
+          <label for="message">想對我們說的話</label>
+          <textarea id="message" name="message" placeholder="選填"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">送出</button>
+        <p class="privacy">資料只用於婚禮聯繫與座位安排</p>
+        <p class="fallback"><a href="https://docs.google.com/forms/d/e/1FAIpQLSe-TCNg-iiVGxvgTwz9LAuXifRrqHROO8d_05ytAVrz8Kbbqw/viewform" target="_blank" rel="noopener">無法送出？改用 Google 表單填寫</a></p>
+      </div>
+    </form>
+
+    <div class="thanks" id="thanks">
+      <p>收到了，謝謝你 🤍</p>
+      <small id="thanksMsg">3/6 見！</small>
+    </div>
+  </div>
+</section>
+
+<footer>Chufen &amp; Yunbei · 2027</footer>
+
+<script>
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe-TCNg-iiVGxvgTwz9LAuXifRrqHROO8d_05ytAVrz8Kbbqw/formResponse";
+const ENTRY = {
+  name:"entry.1192795941", side:"entry.753816040", attend:"entry.325794965", adults:"entry.1025481810",
+  kids:"entry.2026776329", diet:"entry.1106707459", car:"entry.1275213366", email:"entry.1300183133", message:"entry.1712786972"
+};
+const NO = "很可惜沒辦法去，獻上祝福";
+const form = document.getElementById("rsvpForm");
+const yes = document.getElementById("yesBlock"), common = document.getElementById("commonBlock");
+const otherBox = document.getElementById("dietOther"), otherText = document.getElementById("dietOtherText");
+const attending = () => { const a = form.querySelector('input[name="attend"]:checked'); return a && a.value !== NO; };
+
+form.addEventListener("change", e => {
+  const t = e.target;
+  if (t.name === "attend") {
+    yes.classList.toggle("show", t.value !== NO);
+    common.classList.add("show");
+    document.getElementById("thanksMsg").textContent =
+      t.value === "一定到！" ? "3/6 見！" : t.value === NO ? "謝謝你的祝福 🤍" : "確定之後再跟我們說一聲就好";
+  }
+  if (t.name === "diet") {
+    if (t.value === "無" && t.checked) form.querySelectorAll('input[name="diet"]').forEach(c => { if (c !== t) c.checked = false; });
+    if (t.value !== "無" && t.checked) form.querySelector('input[name="diet"][value="無"]').checked = false;
+    otherText.style.display = otherBox.checked ? "block" : "none";
+    if (otherBox.checked && t === otherBox) otherText.focus();
+  }
+  const f = t.closest(".field"); if (f) f.classList.remove("invalid");
+});
+form.addEventListener("input", e => { const f = e.target.closest(".field"); if (f) f.classList.remove("invalid"); });
+
+function validate(){
+  let ok = true, first = null;
+  const check = (f, valid) => { f.classList.toggle("invalid", !valid); if (!valid && !first) first = f; ok = ok && valid; };
+  form.querySelectorAll("[data-req]").forEach(f => {
+    const r = f.dataset.radio;
+    check(f, r ? !!form.querySelector(`input[name="${r}"]:checked`) : f.querySelector("input").value.trim() !== "");
+  });
+  if (attending()) form.querySelectorAll("[data-req-yes]").forEach(f => {
+    const v = f.querySelector("input").value.trim();
+    check(f, "email" in f.dataset ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : Number(v) >= 1);
+  });
+  if (first) first.scrollIntoView({behavior:"smooth", block:"center"});
+  return ok;
+}
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!validate()) return;
+  const fd = new FormData(form), out = new URLSearchParams(), going = attending();
+  let diet = fd.getAll("diet").filter(v => v !== "其他");
+  const other = (fd.get("dietOtherText") || "").trim();
+  if (otherBox.checked) diet.push(other ? "其他：" + other : "其他");
+  const vals = {
+    name: fd.get("name"), side: fd.get("side"), attend: fd.get("attend"), message: fd.get("message"),
+    ...(going ? { adults: fd.get("adults"), kids: fd.get("kids"), diet: diet.join("、"), car: fd.get("car"), email: fd.get("email") } : {})
+  };
+  for (const [k, id] of Object.entries(ENTRY)) { const v = (vals[k] || "").toString().trim(); if (v) out.append(id, v); }
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true; btn.textContent = "送出中…";
+  try {
+    await fetch(FORM_URL, {method:"POST", mode:"no-cors", body:out});
+    form.style.display = "none";
+    document.getElementById("thanks").classList.add("show");
+    document.getElementById("rsvp").scrollIntoView({behavior:"smooth"});
+  } catch (err) {
+    btn.disabled = false; btn.textContent = "送出";
+    alert("好像沒有送出成功，請檢查網路後再試一次，或改用下方的 Google 表單");
+  }
+});
+</script>
+</body>
+</html>
