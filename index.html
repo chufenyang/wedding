@@ -7,6 +7,9 @@
 <meta name="description" content="2027.03.06 星期六 誠品行旅 2F In Between｜婚宴出席調查">
 <meta property="og:title" content="楊筑棻 & 王雲鋇｜2027.03.06 婚宴">
 <meta property="og:description" content="誠摯邀請您參加我們的婚宴，麻煩填寫出席調查 🤍">
+<meta property="og:image" content="https://chufenyang.github.io/wedding/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preload" as="image" href="hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
@@ -104,7 +107,7 @@
   .subnote{font-size:12px;color:var(--soft);letter-spacing:.08em;padding:14px 0;margin:6px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
   #yesBlock{transition:opacity .3s}
   #yesBlock.muted{opacity:.35}
-  body.done .hero,body.done #details,body.done #rsvp,body.done footer{display:none}
+  body.done .hero,body.done #details,body.done #rsvp,body.done footer,body.done .photo-break{display:none}
   .thankpage{display:none;min-height:100svh;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 28px}
   body.done .thankpage{display:flex;animation:fade .6s ease}
   .thankpage .big{font-family:"Noto Serif TC",serif;font-weight:700;font-size:26px;letter-spacing:.2em;margin:24px 0 14px}
@@ -114,16 +117,31 @@
   .sentnote{display:none;text-align:center;font-size:16px;padding:24px 0}
   body.sent #rsvpForm,body.sent .lead{display:none}
   body.sent .sentnote{display:block}
+  /* photos */
+  .hero{position:relative;height:100svh;min-height:560px;width:100%;max-width:calc(100svh * 0.666);margin:0 auto;padding:0;
+        background:#f2f3f4 url(hero.jpg) 100% 100%/cover no-repeat;justify-content:flex-start}
+  .hero::before{content:"";position:absolute;inset:0 0 auto 0;height:55%;background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,0))}
+  .hero-text{position:relative;padding:11svh 24px 0;text-align:center}
+  .hero .names{font-size:clamp(26px,7vw,36px);letter-spacing:.12em;margin:18px 0 0;white-space:nowrap}
+  .hero .names .amp{display:inline;font-size:.8em;margin:0 .15em}
+  .hero .rule{margin:22px auto}
+  .hero .date{font-size:24px}
+  .hero .scroll{display:inline-block;margin-top:26px;color:#2b2f33;border-color:rgba(20,20,20,.3)}
+  .photo-break{margin:0 auto;max-width:720px}
+  .photo-break img{display:block;width:100%;height:auto}
+  .thank-photo{display:block;width:auto;max-width:min(78vw,340px);max-height:50svh;height:auto;margin:0 auto 32px}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <p class="eyebrow">Wedding Invitation</p>
-  <h1 class="names">楊筑棻<span class="amp">&amp;</span>王雲鋇</h1>
-  <div class="rule"></div>
-  <p class="date">2027.03.06<small>星期六 · 午宴</small></p>
-  <a class="scroll" href="#rsvp">填寫出席調查 ↓</a>
+  <div class="hero-text">
+    <p class="eyebrow">Wedding Invitation</p>
+    <h1 class="names">楊筑棻 <span class="amp">&amp;</span> 王雲鋇</h1>
+    <div class="rule"></div>
+    <p class="date">2027.03.06<small>星期六 · 午宴</small></p>
+    <a class="scroll" href="#rsvp">填寫出席調查 ↓</a>
+  </div>
 </header>
 
 <section id="details">
@@ -137,6 +155,8 @@
     </dl>
   </div>
 </section>
+
+<figure class="photo-break"><img src="walk.jpg" alt="筑棻與雲鋇牽手走在海邊草地" loading="lazy" width="1066" height="1600"></figure>
 
 <section id="rsvp">
   <div class="wrap">
@@ -236,8 +256,9 @@
 </section>
 
 <div class="thankpage" id="thanks">
+  <img class="thank-photo" src="thanks.jpg" alt="筑棻與雲鋇" loading="lazy" width="866" height="1300">
   <p class="eyebrow">Thank you</p>
-  <div class="rule" style="margin:28px auto 0"></div>
+  <div class="rule" style="margin:22px auto 0"></div>
   <p class="big">收到了，謝謝您 🤍</p>
   <p class="msg" id="thanksMsg">3/6 見！</p>
   <p class="msg" style="color:var(--soft);font-size:13px;margin-top:22px">2027.03.06（六）11:30 入場 · 12:00 開席<br>誠品行旅 2F In Between</p>
