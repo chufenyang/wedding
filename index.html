@@ -6,7 +6,7 @@
 <title>楊筑棻 & 王雲鋇｜2027.03.06 婚宴</title>
 <meta name="description" content="2027.03.06 星期六 誠品行旅 2F In Between｜婚宴出席調查">
 <meta property="og:title" content="楊筑棻 & 王雲鋇｜2027.03.06 婚宴">
-<meta property="og:description" content="誠意邀請你來參加我們的婚宴，麻煩填一下出席調查 🤍">
+<meta property="og:description" content="誠摯邀請您參加我們的婚宴，麻煩填寫出席調查 🤍">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
@@ -111,12 +111,15 @@
   .thankpage .msg{color:#222;font-size:15px;line-height:2}
   .thankpage .again{margin-top:48px;font-size:12px;font-weight:500;letter-spacing:.2em;color:var(--soft);background:none;border:none;border-bottom:1px solid var(--line);width:auto;padding:0 0 4px;cursor:pointer}
   .thankpage .again:hover{color:var(--ink);border-color:var(--ink);background:none}
+  .sentnote{display:none;text-align:center;font-size:16px;padding:24px 0}
+  body.sent #rsvpForm,body.sent .lead{display:none}
+  body.sent .sentnote{display:block}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <p class="eyebrow">We're getting married</p>
+  <p class="eyebrow">Wedding Invitation</p>
   <h1 class="names">楊筑棻<span class="amp">&amp;</span>王雲鋇</h1>
   <div class="rule"></div>
   <p class="date">2027.03.06<small>星期六 · 午宴</small></p>
@@ -139,17 +142,17 @@
   <div class="wrap">
     <h2>RSVP</h2>
     <h3>出席調查</h3>
-    <p class="lead" style="margin-bottom:56px">想邀請你一起來吃頓飯，見證我們的重要日子。<br>麻煩花一分鐘填一下，讓我們好好準備座位和餐點 🤍</p>
+    <p class="lead" style="margin-bottom:56px">誠摯邀請您一起來吃頓飯，見證我們的重要日子。<br>麻煩花一分鐘填寫，讓我們好好準備座位和餐點 🤍</p>
 
     <form id="rsvpForm" novalidate>
       <div class="field q" data-req>
-        <label for="name">你的名字<span class="req">必填</span></label>
+        <label for="name">您的名字<span class="req">必填</span></label>
         <input type="text" id="name" name="name" autocomplete="name">
         <p class="err">請填寫名字</p>
       </div>
 
       <div class="field q" data-req data-radio="side">
-        <span class="label">你是誰的親友？<span class="req">必填</span></span>
+        <span class="label">您是哪一方的親友？<span class="req">必填</span></span>
         <div class="choices">
           <label><input type="radio" name="side" value="男方親友"><span>男方親友</span></label>
           <label><input type="radio" name="side" value="男方同事"><span>男方同事</span></label>
@@ -166,27 +169,28 @@
         <div class="choices">
           <label><input type="radio" name="attend" value="一定到！"><span>一定到！</span></label>
           <label><input type="radio" name="attend" value="還不確定，晚點再跟你們說"><span>還不確定，晚點再跟你們說</span></label>
-          <label><input type="radio" name="attend" value="很可惜沒辦法去，獻上祝福"><span>很可惜沒辦法去，獻上祝福</span></label>
+          <label><input type="radio" name="attend" value="很可惜無法出席，獻上祝福"><span>很可惜無法出席，獻上祝福</span></label>
         </div>
         <p class="err">請選一個</p>
       </div>
 
       <!-- 出席 / 還不確定 -->
       <div id="yesBlock">
-        <p class="subnote">第 4–8 題：能出席或還不確定的話，再麻煩填一下</p>
+        <p class="subnote">第 4–8 題：能出席與還不確定者必填</p>
         <div class="field q" data-req-yes>
-          <label for="adults">總共幾位大人？（含你自己）<span class="req">出席必填</span></label>
+          <label for="adults">總共幾位大人？（含您自己）<span class="req">必填</span></label>
           <input type="number" id="adults" name="adults" inputmode="numeric" min="1" max="20" placeholder="例：2">
           <p class="err">請填寫大人人數</p>
         </div>
 
-        <div class="field q">
-          <label for="kids">有帶小朋友嗎？需要幾張兒童椅？</label>
-          <input type="text" id="kids" name="kids" placeholder="例：2 位小孩，1 張兒童椅">
+        <div class="field q" data-req-yes data-text>
+          <label for="kids">有帶小朋友嗎？需要幾張兒童椅？<span class="req">必填</span></label>
+          <input type="text" id="kids" name="kids" placeholder="例：2 位小孩，1 張兒童椅（沒有請填「無」）">
+          <p class="err">請填寫，沒有的話填「無」</p>
         </div>
 
-        <div class="field q">
-          <span class="label">飲食禁忌</span>
+        <div class="field q" data-req-yes data-group="diet">
+          <span class="label">飲食禁忌<span class="req">必填</span></span>
           <div class="choices">
             <label><input type="checkbox" name="diet" value="無"><span>無</span></label>
             <label><input type="checkbox" name="diet" value="蛋奶素"><span>蛋奶素</span></label>
@@ -195,18 +199,20 @@
             <label><input type="checkbox" name="diet" value="其他" id="dietOther"><span>其他</span></label>
           </div>
           <input type="text" id="dietOtherText" name="dietOtherText" placeholder="請說明，例如海鮮過敏" style="display:none;margin-top:14px">
+          <p class="err">請至少選一個，沒有的話選「無」</p>
         </div>
 
-        <div class="field q">
-          <span class="label">會開車過去嗎？</span>
+        <div class="field q" data-req-yes data-group="car">
+          <span class="label">會開車前往嗎？<span class="req">必填</span></span>
           <div class="choices">
             <label><input type="radio" name="car" value="會，需要停車資訊"><span>會，需要停車資訊</span></label>
             <label><input type="radio" name="car" value="不會，搭捷運或計程車"><span>不會，搭捷運或計程車</span></label>
           </div>
+          <p class="err">請選一個</p>
         </div>
 
         <div class="field q" data-req-yes data-email>
-          <label for="email">電子喜帖收件 Email<span class="req">出席必填</span></label>
+          <label for="email">電子喜帖收件 Email<span class="req">必填</span></label>
           <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com">
           <p class="err">請填寫正確的 Email</p>
         </div>
@@ -223,6 +229,7 @@
         <p class="fallback"><a href="https://docs.google.com/forms/d/e/1FAIpQLSe-TCNg-iiVGxvgTwz9LAuXifRrqHROO8d_05ytAVrz8Kbbqw/viewform" target="_blank" rel="noopener">無法送出？改用 Google 表單填寫</a></p>
       </div>
     </form>
+    <p class="sentnote">已收到您的回覆，謝謝您 🤍</p>
 
     
   </div>
@@ -231,10 +238,10 @@
 <div class="thankpage" id="thanks">
   <p class="eyebrow">Thank you</p>
   <div class="rule" style="margin:28px auto 0"></div>
-  <p class="big">收到了，謝謝你 🤍</p>
+  <p class="big">收到了，謝謝您 🤍</p>
   <p class="msg" id="thanksMsg">3/6 見！</p>
   <p class="msg" style="color:var(--soft);font-size:13px;margin-top:22px">2027.03.06（六）11:30 入場 · 12:00 開席<br>誠品行旅 2F In Between</p>
-  <button class="again" type="button" onclick="location.reload()">再幫其他人填一份</button>
+  <button class="again" type="button" id="backBtn">查看婚宴資訊</button>
 </div>
 
 <footer>Chufen &amp; Yunbei · 2027</footer>
@@ -245,7 +252,7 @@ const ENTRY = {
   name:"entry.1192795941", side:"entry.753816040", attend:"entry.325794965", adults:"entry.1025481810",
   kids:"entry.2026776329", diet:"entry.1106707459", car:"entry.1275213366", email:"entry.1300183133", message:"entry.1712786972"
 };
-const NO = "很可惜沒辦法去，獻上祝福";
+const NO = "很可惜無法出席，獻上祝福";
 const form = document.getElementById("rsvpForm");
 const yes = document.getElementById("yesBlock"), common = document.getElementById("commonBlock");
 const otherBox = document.getElementById("dietOther"), otherText = document.getElementById("dietOtherText");
@@ -256,7 +263,7 @@ form.addEventListener("change", e => {
   if (t.name === "attend") {
     yes.classList.toggle("muted", t.value === NO);
     document.getElementById("thanksMsg").textContent =
-      t.value === "一定到！" ? "期待 3/6 見到你！電子喜帖之後會寄到你的信箱" : t.value === NO ? "謝謝你的祝福，我們會把這份心意收好" : "確定之後再跟我們說一聲就好，電子喜帖之後會寄到你的信箱";
+      t.value === "一定到！" ? "電子喜帖日後會寄到您的信箱，再請留意" : t.value === NO ? "謝謝您的祝福，我們會把這份心意收好" : "電子喜帖日後會寄到您的信箱，再請留意";
   }
   if (t.name === "diet") {
     if (t.value === "無" && t.checked) form.querySelectorAll('input[name="diet"]').forEach(c => { if (c !== t) c.checked = false; });
@@ -276,8 +283,9 @@ function validate(){
     check(f, r ? !!form.querySelector(`input[name="${r}"]:checked`) : f.querySelector("input").value.trim() !== "");
   });
   if (attending()) form.querySelectorAll("[data-req-yes]").forEach(f => {
+    if (f.dataset.group) return check(f, !!form.querySelector(`input[name="${f.dataset.group}"]:checked`) && !(f.dataset.group === "diet" && otherBox.checked && !otherText.value.trim()));
     const v = f.querySelector("input").value.trim();
-    check(f, "email" in f.dataset ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : Number(v) >= 1);
+    check(f, "email" in f.dataset ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : "text" in f.dataset ? v !== "" : Number(v) >= 1);
   });
   if (first) first.scrollIntoView({behavior:"smooth", block:"center"});
   return ok;
@@ -305,6 +313,11 @@ form.addEventListener("submit", async e => {
     btn.disabled = false; btn.textContent = "送出";
     alert("好像沒有送出成功，請檢查網路後再試一次，或改用下方的 Google 表單");
   }
+});
+document.getElementById("backBtn").addEventListener("click", () => {
+  document.body.classList.remove("done");
+  document.body.classList.add("sent");
+  window.scrollTo(0, 0);
 });
 </script>
 </body>
