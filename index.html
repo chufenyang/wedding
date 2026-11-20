@@ -101,13 +101,16 @@
   .thanks p{font-family:"Noto Serif TC",serif;font-weight:700;font-size:20px;letter-spacing:.15em;margin-bottom:12px}
   .thanks small{color:var(--soft);font-size:14px}
 
+  .photo-band{margin:0;border-top:1px solid var(--line)}
+  .photo-band img{display:block;width:100%;height:auto}
+  @media(min-width:900px){.photo-band img{height:min(78vh,820px);object-fit:cover;object-position:50% 45%}}
   footer{text-align:center;padding:64px 0 80px;border-top:1px solid var(--line);font-family:"Lora","Noto Serif TC",serif;font-style:italic;font-weight:500;color:var(--soft);letter-spacing:.12em}
   form{counter-reset:q}
   .field.q > label::before,.field.q > .label::before{counter-increment:q;content:counter(q) ". ";font-family:"Lora","Noto Serif TC",serif;font-weight:600;font-size:16px;margin-right:2px}
   .subnote{font-size:12px;color:var(--soft);letter-spacing:.08em;padding:14px 0;margin:6px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
   #yesBlock{transition:opacity .3s}
   #yesBlock.muted{opacity:.35}
-  body.done .hero,body.done #details,body.done #rsvp,body.done footer,body.done .photo-break{display:none}
+  body.done .hero,body.done #details,body.done #rsvp,body.done footer,body.done .photo-break,body.done .photo-band{display:none}
   .thankpage{display:none;min-height:100svh;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 28px}
   body.done .thankpage{display:flex;animation:fade .6s ease}
   .thankpage .big{font-family:"Noto Serif TC",serif;font-weight:700;font-size:26px;letter-spacing:.2em;margin:24px 0 14px}
@@ -136,9 +139,10 @@
   .acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:2px 0 12px;font-weight:500}
   .acc+.acc summary{padding-top:12px}
   .acc summary::-webkit-details-marker{display:none}
-  .acc summary::after{content:"+";font-size:18px;color:var(--soft);line-height:1;transition:transform .2s}
+  .acc summary::after{content:"+";font-size:18px;color:var(--soft);line-height:1;transition:transform .35s cubic-bezier(.4,0,.2,1)}
   .acc[open] summary::after{transform:rotate(45deg)}
-  .acc .acc-body{padding:0 0 14px}
+  .acc.closing summary::after{transform:rotate(0)}
+  .acc .acc-body{padding:0 0 14px;overflow:hidden;box-sizing:border-box}
   .acc .acc-body p{margin:0}
   .details-layout{display:flex;flex-direction:column}
   .details-layout .photo-break{order:2;margin-top:72px}
@@ -186,7 +190,7 @@
       <div class="row"><dt>地點</dt><dd>誠品行旅 2F In Between<small>台北市信義區菸廠路 98 號</small><a href="https://www.google.com/maps/search/?api=1&query=%E8%AA%A0%E5%93%81%E8%A1%8C%E6%97%85" target="_blank" rel="noopener">在 Google 地圖開啟 →</a></dd></div>
       <div class="row"><dt>交通</dt><dd>
         <details class="acc"><summary>捷運</summary><div class="acc-body"><p>板南線「國父紀念館站」5 號出口<small>步行約 8–10 分鐘</small></p><p>板南線「市政府站」1 號出口<small>步行約 10 分鐘</small></p></div></details>
-        <details class="acc"><summary>開車 &amp; 停車</summary><div class="acc-body"><p>導航「誠品行旅」，停台北文創大樓地下停車場<small>由菸廠路進入</small></p><p>婚宴賓客可折抵 4 小時停車費<small>週六車位較滿，建議提早抵達</small></p></div></details>
+        <details class="acc"><summary>開車</summary><div class="acc-body"><p>導航「誠品行旅」，停台北文創大樓地下停車場<small>由菸廠路進入</small></p><p>婚宴賓客可折抵 4 小時停車費<small>週六車位較滿，建議提早抵達</small></p></div></details>
       </dd></div>
     </dl>
   </div>
@@ -300,6 +304,8 @@
   <button class="again" type="button" id="backBtn">查看婚宴資訊</button>
 </div>
 
+<figure class="photo-band"><img src="band.jpg" alt="筑棻與雲鋇在山間相視而笑" loading="lazy" width="1800" height="1200"></figure>
+
 <footer>Chufen &amp; Yunbei · 2027</footer>
 
 <script>
@@ -374,6 +380,28 @@ document.getElementById("backBtn").addEventListener("click", () => {
   document.body.classList.remove("done");
   document.body.classList.add("sent");
   window.scrollTo(0, 0);
+});
+
+// smooth accordion
+const ease='cubic-bezier(.4,0,.2,1)';
+document.querySelectorAll('.acc').forEach(d=>{
+  const sum=d.querySelector('summary'), body=d.querySelector('.acc-body');
+  let anim=null;
+  sum.addEventListener('click',e=>{
+    e.preventDefault();
+    if(anim) anim.cancel();
+    if(!d.open || d.classList.contains('closing')){
+      const from=d.open?body.offsetHeight:0;
+      d.classList.remove('closing'); d.open=true;
+      const to=body.scrollHeight;
+      anim=body.animate([{height:from+'px',opacity:from?1:0},{height:to+'px',opacity:1}],{duration:380,easing:ease});
+      anim.onfinish=()=>{anim=null};
+    }else{
+      d.classList.add('closing');
+      anim=body.animate([{height:body.offsetHeight+'px',opacity:1},{height:'0px',opacity:0}],{duration:320,easing:ease});
+      anim.onfinish=()=>{d.open=false;d.classList.remove('closing');anim=null};
+    }
+  });
 });
 </script>
 </body>
