@@ -102,8 +102,8 @@
   .thanks small{color:var(--soft);font-size:14px}
 
   .photo-band{margin:0;border-top:1px solid var(--line)}
-  .photo-band img{display:block;width:100%;height:auto}
-  @media(min-width:900px){.photo-band img{height:min(78vh,820px);object-fit:cover;object-position:50% 45%}}
+  .photo-band img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 85%}
+  @media(min-width:900px){.photo-band{padding:72px 0}.photo-band img{width:auto;height:min(88vh,900px);aspect-ratio:auto;margin:0 auto}}
   footer{text-align:center;padding:64px 0 80px;border-top:1px solid var(--line);font-family:"Lora","Noto Serif TC",serif;font-style:italic;font-weight:500;color:var(--soft);letter-spacing:.12em}
   form{counter-reset:q}
   .field.q > label::before,.field.q > .label::before{counter-increment:q;content:counter(q) ". ";font-family:"Lora","Noto Serif TC",serif;font-weight:600;font-size:16px;margin-right:2px}
@@ -157,7 +157,7 @@
     .details-layout .wrap>*{width:100%;max-width:520px;margin-left:auto;margin-right:auto}
     .hero{max-width:none;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:#fff;min-height:620px}
     .hero::before{display:none}
-    .hero-photo{position:relative;inset:auto;height:100%;background-position:50% 100%;order:2}
+    .hero-photo{position:relative;inset:auto;height:100%;background-position:50% 72%;order:2}
     .hero-text{padding:0 6vw}
     .hero .names{font-size:clamp(34px,3.2vw,50px)}
     .hero .date{font-size:30px}
@@ -304,7 +304,7 @@
   <button class="again" type="button" id="backBtn">查看婚宴資訊</button>
 </div>
 
-<figure class="photo-band"><img src="band.jpg" alt="筑棻與雲鋇在山間相視而笑" loading="lazy" width="1800" height="1200"></figure>
+<figure class="photo-band"><img src="band.jpg" alt="筑棻與雲鋇在山間橋上微笑" loading="lazy" width="1066" height="1600"></figure>
 
 <footer>Chufen &amp; Yunbei · 2027</footer>
 
