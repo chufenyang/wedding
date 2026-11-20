@@ -119,9 +119,10 @@
   body.sent .sentnote{display:block}
   /* photos */
   .hero{position:relative;height:100svh;min-height:560px;width:100%;max-width:calc(100svh * 0.666);margin:0 auto;padding:0;
-        background:#f2f3f4 url(hero.jpg) 100% 100%/cover no-repeat;justify-content:flex-start}
-  .hero::before{content:"";position:absolute;inset:0 0 auto 0;height:55%;background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,0))}
-  .hero-text{position:relative;padding:11svh 24px 0;text-align:center}
+        background:#f2f3f4;justify-content:flex-start}
+  .hero-photo{position:absolute;inset:0;background:url(hero.jpg) 100% 100%/cover no-repeat}
+  .hero::before{z-index:1;content:"";position:absolute;inset:0 0 auto 0;height:55%;background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,0))}
+  .hero-text{position:relative;z-index:2;padding:11svh 24px 0;text-align:center}
   .hero .names{font-size:clamp(26px,7vw,36px);letter-spacing:.12em;margin:18px 0 0;white-space:nowrap}
   .hero .names .amp{display:inline;font-size:.8em;margin:0 .15em}
   .hero .rule{margin:22px auto}
@@ -130,11 +131,23 @@
   .photo-break{margin:0 auto;max-width:720px}
   .photo-break img{display:block;width:100%;height:auto}
   .thank-photo{display:block;width:auto;max-width:min(78vw,340px);max-height:50svh;height:auto;margin:0 auto 32px}
+  /* desktop */
+  @media (min-width:900px){
+    .hero{max-width:none;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:#fff;min-height:620px}
+    .hero::before{display:none}
+    .hero-photo{position:relative;inset:auto;height:100%;background-position:50% 100%}
+    .hero-text{padding:0 6vw}
+    .hero .names{font-size:clamp(34px,3.2vw,50px)}
+    .hero .date{font-size:30px}
+    .hero .eyebrow{font-size:16px}
+    .photo-break{max-width:560px;padding:0 28px}
+  }
 </style>
 </head>
 <body>
 
 <header class="hero">
+  <div class="hero-photo" role="img" aria-label="筑棻與雲鋇牽手在海邊草地"></div>
   <div class="hero-text">
     <p class="eyebrow">Wedding Invitation</p>
     <h1 class="names">楊筑棻 <span class="amp">&amp;</span> 王雲鋇</h1>
