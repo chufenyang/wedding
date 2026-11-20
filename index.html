@@ -51,7 +51,7 @@
   .details{display:grid;gap:0;border-top:1px solid var(--line)}
   .row{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);font-size:15px}
   .row dt{color:var(--soft);font-size:13px;font-weight:500;letter-spacing:.12em;padding-top:2px}
-  .row dd small{display:block;color:var(--soft);font-size:13px}
+  .row dd small{display:block;color:var(--soft);font-size:13px;margin-bottom:6px}
   .row a{color:var(--ink);text-underline-offset:4px;text-decoration-color:var(--line)}
   .row a:hover{text-decoration-color:var(--ink)}
 
@@ -131,16 +131,22 @@
   .photo-break{margin:0 auto;max-width:720px}
   .photo-break img{display:block;width:100%;height:auto}
   .thank-photo{display:block;width:auto;max-width:min(78vw,340px);max-height:50svh;height:auto;margin:0 auto 32px}
+  .details-layout{display:flex;flex-direction:column}
+  .details-layout .photo-break{order:2;margin-top:72px}
+  #details{padding-bottom:0}
   /* desktop */
   @media (min-width:900px){
+    #details{padding:96px 0}
+    .details-layout{display:grid;grid-template-columns:minmax(0,440px) minmax(0,560px);gap:72px;justify-content:center;align-items:center;padding:0 40px}
+    .details-layout .photo-break{order:0;margin:0;max-width:none;padding:0}
+    .details-layout .wrap{margin:0;padding:0;max-width:560px}
     .hero{max-width:none;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:#fff;min-height:620px}
     .hero::before{display:none}
-    .hero-photo{position:relative;inset:auto;height:100%;background-position:50% 100%}
+    .hero-photo{position:relative;inset:auto;height:100%;background-position:50% 100%;order:2}
     .hero-text{padding:0 6vw}
     .hero .names{font-size:clamp(34px,3.2vw,50px)}
     .hero .date{font-size:30px}
     .hero .eyebrow{font-size:16px}
-    .photo-break{max-width:560px;padding:0 28px}
   }
 </style>
 </head>
@@ -158,6 +164,8 @@
 </header>
 
 <section id="details">
+  <div class="details-layout">
+  <figure class="photo-break"><img src="walk.jpg" alt="筑棻與雲鋇牽手走在海邊草地" loading="lazy" width="1066" height="1600"></figure>
   <div class="wrap">
     <h2>The Day</h2>
     <h3>婚宴資訊</h3>
@@ -165,11 +173,12 @@
       <div class="row"><dt>日期</dt><dd>2027 年 3 月 6 日（星期六）</dd></div>
       <div class="row"><dt>時間</dt><dd>11:30 入場<br>12:00 開席</dd></div>
       <div class="row"><dt>地點</dt><dd>誠品行旅 2F In Between<small>台北市信義區菸廠路 98 號</small><a href="https://www.google.com/maps/search/?api=1&query=%E8%AA%A0%E5%93%81%E8%A1%8C%E6%97%85" target="_blank" rel="noopener">在 Google 地圖開啟 →</a></dd></div>
+      <div class="row"><dt>捷運</dt><dd>板南線「國父紀念館站」5 號出口<small>沿光復南路往市民大道方向走，右轉進松菸園區，步行約 8–10 分鐘</small>板南線「市政府站」1 號出口<small>沿忠孝東路往國父紀念館方向，右轉 553 巷進園區，步行約 10 分鐘</small></dd></div>
+      <div class="row"><dt>開車</dt><dd>導航「誠品行旅」，停台北文創大樓地下停車場<small>由菸廠路進入</small>婚宴賓客可折抵 4 小時停車費<small>週六車位較滿，建議提早抵達</small></dd></div>
     </dl>
   </div>
+  </div>
 </section>
-
-<figure class="photo-break"><img src="walk.jpg" alt="筑棻與雲鋇牽手走在海邊草地" loading="lazy" width="1066" height="1600"></figure>
 
 <section id="rsvp">
   <div class="wrap">
