@@ -136,15 +136,14 @@
   .thank-photo{display:block;width:auto;max-width:min(78vw,340px);max-height:50svh;height:auto;margin:0 auto 32px}
   .acc{border-top:1px solid var(--line)}
   .acc:first-child{border-top:none}
-  .acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:2px 0 12px;font-weight:500}
-  .acc+.acc summary{padding-top:12px}
-  .acc summary::-webkit-details-marker{display:none}
-  .acc summary::after{content:"+";font-size:18px;color:var(--soft);line-height:1;transition:transform .35s cubic-bezier(.4,0,.2,1)}
-  .acc[open] summary::after{transform:rotate(45deg)}
-  .acc.closing summary::after{transform:rotate(0)}
-  .acc .acc-body{overflow:hidden}
-  .acc .acc-body p:last-child{padding-bottom:14px}
-  .acc .acc-body p{margin:0}
+  .acc-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:2px 0 12px;font-weight:500;-webkit-tap-highlight-color:transparent;user-select:none}
+  .acc+.acc .acc-head{padding-top:12px}
+  .acc-head::after{content:"+";font-size:18px;color:var(--soft);line-height:1;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+  .acc.open .acc-head::after{transform:rotate(45deg)}
+  .acc-panel{height:0;overflow:hidden;opacity:0;transition:height .4s cubic-bezier(.4,0,.2,1),opacity .3s ease;will-change:height}
+  .acc.open .acc-panel{opacity:1}
+  .acc-body{padding-bottom:14px}
+  .acc-body p{margin:0}
   .details-layout{display:flex;flex-direction:column}
   .details-layout .photo-break{order:2;margin-top:72px}
   #details{padding-bottom:0}
@@ -190,8 +189,8 @@
       <div class="row"><dt>時間</dt><dd>11:30 入場<br>12:00 開席</dd></div>
       <div class="row"><dt>地點</dt><dd>誠品行旅 2F In Between<small>台北市信義區菸廠路 98 號</small><a href="https://www.google.com/maps/search/?api=1&query=%E8%AA%A0%E5%93%81%E8%A1%8C%E6%97%85" target="_blank" rel="noopener">在 Google 地圖開啟 →</a></dd></div>
       <div class="row"><dt>交通</dt><dd>
-        <details class="acc"><summary>捷運</summary><div class="acc-body"><p>板南線「國父紀念館站」5 號出口<small>步行約 8–10 分鐘</small></p><p>板南線「市政府站」1 號出口<small>步行約 10 分鐘</small></p></div></details>
-        <details class="acc"><summary>開車</summary><div class="acc-body"><p>導航「誠品行旅」，停台北文創大樓地下停車場<small>由菸廠路進入</small></p><p>婚宴賓客可折抵 4 小時停車費<small>週六車位較滿，建議提早抵達</small></p></div></details>
+        <div class="acc"><div class="acc-head" role="button" tabindex="0" aria-expanded="false">捷運</div><div class="acc-panel"><div class="acc-body"><p>板南線「國父紀念館站」5 號出口<small>步行約 8–10 分鐘</small></p><p>板南線「市政府站」1 號出口<small>步行約 10 分鐘</small></p></div></div></div>
+        <div class="acc"><div class="acc-head" role="button" tabindex="0" aria-expanded="false">開車</div><div class="acc-panel"><div class="acc-body"><p>導航「誠品行旅」，停台北文創大樓地下停車場<small>由菸廠路進入</small></p><p>婚宴賓客可折抵 4 小時停車費<small>週六車位較滿，建議提早抵達</small></p></div></div></div>
       </dd></div>
     </dl>
   </div>
@@ -384,25 +383,21 @@ document.getElementById("backBtn").addEventListener("click", () => {
 });
 
 // smooth accordion
-const ease='cubic-bezier(.4,0,.2,1)';
 document.querySelectorAll('.acc').forEach(d=>{
-  const sum=d.querySelector('summary'), body=d.querySelector('.acc-body');
-  let anim=null;
-  sum.addEventListener('click',e=>{
-    e.preventDefault();
-    if(anim) anim.cancel();
-    if(!d.open || d.classList.contains('closing')){
-      const from=d.open?body.offsetHeight:0;
-      d.classList.remove('closing'); d.open=true;
-      const to=body.scrollHeight;
-      anim=body.animate([{height:from+'px',opacity:from?1:0},{height:to+'px',opacity:1}],{duration:380,easing:ease});
-      anim.onfinish=()=>{anim=null};
-    }else{
-      d.classList.add('closing');
-      anim=body.animate([{height:body.offsetHeight+'px',opacity:1},{height:'0px',opacity:0}],{duration:320,easing:ease});
-      anim.onfinish=()=>{d.open=false;d.classList.remove('closing');anim=null};
-    }
+  const head=d.querySelector('.acc-head'), panel=d.querySelector('.acc-panel');
+  const toggle=()=>{
+    const opening=!d.classList.contains('open');
+    panel.style.height=panel.getBoundingClientRect().height+'px';
+    panel.offsetHeight;
+    d.classList.toggle('open',opening);
+    head.setAttribute('aria-expanded',opening);
+    panel.style.height=(opening?panel.scrollHeight:0)+'px';
+  };
+  panel.addEventListener('transitionend',e=>{
+    if(e.propertyName==='height' && d.classList.contains('open')) panel.style.height='auto';
   });
+  head.addEventListener('click',toggle);
+  head.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
 });
 </script>
 </body>
